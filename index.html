@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Pterodactyl Controller</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="brand">
+                <i class="fa-solid fa-robot brand-icon"></i>
+                <div>
+                    <h1>AI Server Controller</h1>
+                    <span class="status-badge" id="server-status">
+                        <span class="dot"></span> Offline
+                    </span>
+                </div>
+            </div>
+            <button class="icon-btn" id="open-settings" title="Pengaturan API">
+                <i class="fa-solid fa-gear"></i>
+            </button>
+        </header>
+
+        <!-- Quick Controls -->
+        <div class="quick-actions">
+            <button class="action-btn start" onclick="handlePower('start')">
+                <i class="fa-solid fa-play"></i> Start
+            </button>
+            <button class="action-btn restart" onclick="handlePower('restart')">
+                <i class="fa-solid fa-rotate-right"></i> Restart
+            </button>
+            <button class="action-btn stop" onclick="handlePower('stop')">
+                <i class="fa-solid fa-stop"></i> Stop
+            </button>
+        </div>
+
+        <!-- Chat / Console Area -->
+        <main class="chat-area" id="chat-window">
+            <div class="message ai">
+                <i class="fa-solid fa-robot msg-icon"></i>
+                <div class="msg-content">
+                    Halo! Saya asisten AI pengelola server Pterodactyl Anda. Silakan tentukan konfigurasi API Key melalui tombol gir di kanan atas, lalu berikan perintah suara atau ketik instruksi Anda.
+                </div>
+            </div>
+        </main>
+
+        <!-- Input Bar -->
+        <footer class="input-container">
+            <input type="text" id="user-input" placeholder="Ketik perintah (contoh: matikan server, kirim say halo)..." autocomplete="off">
+            <button class="send-btn" id="send-btn">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </footer>
+    </div>
+
+    <!-- Modal Pengaturan -->
+    <div class="modal-overlay" id="settings-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-sliders"></i> Pengaturan API</h2>
+                <button class="close-btn" id="close-settings">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="cfg-gemini-key">Gemini API Key</label>
+                    <input type="password" id="cfg-gemini-key" placeholder="AIzaSy...">
+                </div>
+                <div class="form-group">
+                    <label for="cfg-panel-url">URL Panel Pterodactyl</label>
+                    <input type="url" id="cfg-panel-url" placeholder="https://panel.domainanda.com">
+                </div>
+                <div class="form-group">
+                    <label for="cfg-client-key">Client API Key Pterodactyl</label>
+                    <input type="password" id="cfg-client-key" placeholder="ptlc_...">
+                </div>
+                <div class="form-group">
+                    <label for="cfg-server-id">Server ID (8 karakter)</label>
+                    <input type="text" id="cfg-server-id" placeholder="a1b2c3d4">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="save-btn" id="save-settings">
+                    <i class="fa-solid fa-floppy-disk"></i> Simpan Konfigurasi
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load JavaScript sebagai ES Module -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
