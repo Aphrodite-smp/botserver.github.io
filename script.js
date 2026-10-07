@@ -2,7 +2,7 @@ import { GoogleGenAI } from "https://esm.run/@google/genai";
 
 // State Konfigurasi (Sudah terpasang Gemini API Key Kamu)
 let config = {
-    geminiKey: localStorage.getItem('cfg_gemini_key') || 'AQ.Ab8RN6KJEAFmDE6VwZ6vcUnr2T2jZJ33d_SB5YX2myQngYF9hw',
+    geminiKey: localStorage.getItem('cfg_gemini_key') || 'AQ.Ab8RN6JwYo79KqryG8HJs8lLju6-B4KQVVNsTNIqSV0vrxKGcQ',
     panelUrl: localStorage.getItem('cfg_panel_url') || '',
     clientKey: localStorage.getItem('cfg_client_key') || '',
     serverId: localStorage.getItem('cfg_server_id') || ''
@@ -130,7 +130,7 @@ async function handleUserMessage() {
         const ai = new GoogleGenAI({ apiKey: config.geminiKey });
         
         const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
+            model: 'gemini-3.8-flash',
             config: {
                 systemInstruction: "Kamu adalah asisten pengelola server Pterodactyl. Gunakan fungsi/tools yang tersedia untuk mengeksekusi perintah daya atau konsol sesuai instruksi pengguna.",
                 tools: [{
